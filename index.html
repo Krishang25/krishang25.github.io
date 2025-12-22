@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif; /* EDIT: You can change the font if you want, e.g., 'Times New Roman' */
-            background: linear-gradient(to bottom, #ffcccc, #ffffff); /* Festive red-white gradient background */
+            background: linear-gradient(135deg, #ffcccc, #ffffff, #e6f7ff); /* Festive gradient background with blue tones */
             color: #333; /* Text color */
             overflow-x: hidden; /* Prevents horizontal scrolling */
             position: relative; /* Allows positioning of elements like snowflakes */
@@ -30,44 +30,48 @@
         }
         /* Twinkling Lights Border - Adds a glowing effect to sections */
         .twinkle {
-            border: 2px solid #ffd700; /* Gold border */
+            border: 3px solid #ffd700; /* Gold border */
             animation: twinkle 2s infinite alternate; /* Alternates color for twinkling */
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Glow effect */
         }
         @keyframes twinkle {
-            0% { border-color: #ffd700; } /* Gold */
-            100% { border-color: #ff4500; } /* Red */
+            0% { border-color: #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); } /* Gold */
+            100% { border-color: #ff4500; box-shadow: 0 0 20px rgba(255, 69, 0, 0.5); } /* Red */
         }
         /* Navigation Bar - Fixed at the top for jumping between sections */
         nav {
             position: fixed; /* Stays at the top even when scrolling */
             top: 0;
             width: 100%; /* Full width */
-            background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+            background: rgba(0, 0, 0, 0.9); /* Semi-transparent black */
             color: #fff; /* White text */
             text-align: center; /* Centers the buttons */
-            padding: 10px; /* Space around content */
+            padding: 15px; /* Space around content */
             z-index: 1000; /* Ensures it stays on top */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Shadow */
         }
         nav button {
             background: #ff4500; /* Red background */
             color: #fff; /* White text */
             border: none; /* No border */
-            padding: 10px 20px; /* Space inside buttons */
-            margin: 0 10px; /* Space between buttons */
+            padding: 12px 25px; /* Space inside buttons */
+            margin: 0 15px; /* Space between buttons */
             cursor: pointer; /* Hand cursor on hover */
-            border-radius: 5px; /* Rounded corners */
+            border-radius: 25px; /* Rounded corners */
+            font-weight: bold; /* Bold text */
         }
-        nav button:hover { background: #ffd700; } /* Changes to gold on hover */
+        nav button:hover { background: #ffd700; color: #000; } /* Changes to gold on hover */
         /* Sections - Each "page" is a section */
         section {
-            height: 100vh; /* Full viewport height */
+            min-height: 100vh; /* Full viewport height */
             display: flex; /* Uses flexbox for layout */
             flex-direction: column; /* Stacks items vertically */
             justify-content: center; /* Centers content vertically */
             align-items: center; /* Centers content horizontally */
-            padding: 20px; /* Space around content */
+            padding: 30px; /* Space around content */
             opacity: 0; /* Starts invisible */
-            animation: fadeIn 1s ease-in-out forwards; /* Fades in on load */
+            animation: fadeIn 1.5s ease-in-out forwards; /* Fades in on load */
+            position: relative; /* For layering */
         }
         @keyframes fadeIn {
             to { opacity: 1; } /* Becomes visible */
@@ -75,54 +79,61 @@
         /* First Section: Wishes and Images - Layout for wishes and images */
         #section1 {
             background: url('https://via.placeholder.com/1920x1080/ffffff/cccccc?text=Snowy+Background') no-repeat center center/cover; /* EDIT: Replace with your own snowy background image URL or path (e.g., 'images/snow.jpg') */
-            flex-direction: row; /* Side-by-side layout on larger screens */
-            justify-content: space-around; /* Spaces out wishes and images */
+            flex-direction: column; /* Stacks vertically */
+            justify-content: flex-start; /* Aligns to top for more content */
+            padding-top: 100px; /* Extra top padding for nav */
         }
         .wishes {
-            max-width: 50%; /* Takes half the width on larger screens */
-            text-align: left; /* Left-aligns text */
+            max-width: 90%; /* Wider for content */
+            text-align: center; /* Centers text */
+            margin-bottom: 30px; /* Space below */
         }
         /* Wishes Box - A styled box around the wishes text */
         .wishes-box {
-            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-            border: 2px solid #ff4500; /* Red border */
-            border-radius: 10px; /* Rounded corners */
-            padding: 20px; /* Space inside the box */
-            box-shadow: 0 0 15px rgba(0,0,0,0.3); /* Shadow for depth */
+            background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+            border: 3px solid #ff4500; /* Red border */
+            border-radius: 15px; /* Rounded corners */
+            padding: 25px; /* Space inside the box */
+            box-shadow: 0 0 25px rgba(0,0,0,0.4); /* Shadow for depth */
             margin-bottom: 20px; /* Space below the box */
-        }
-        .wishes p {
-            margin: 20px 0; /* Space between paragraphs */
             font-size: 18px; /* Text size */
-            line-height: 1.5; /* Line spacing */
+            line-height: 1.6; /* Line spacing */
+        }
+        .wishes-box p {
+            margin: 15px 0; /* Space between paragraphs */
         }
         .images {
-            max-width: 40%; /* Takes 40% width on larger screens */
             display: grid; /* Grid layout for multiple images */
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
-            gap: 10px; /* Space between images */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+            gap: 15px; /* Space between images */
+            max-width: 90%; /* Limits width */
         }
         .images img {
             width: 100%; /* Full width of grid cell */
             height: auto; /* Maintains aspect ratio */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Shadow effect */
-            transition: transform 0.3s; /* Smooth hover effect */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 0 15px rgba(0,0,0,0.5); /* Shadow effect */
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
         }
-        .images img:hover { transform: scale(1.05); } /* Slightly enlarges on hover */
-        /* Second Section: Creative Carousel - For memories */
+        .images img:hover { 
+            transform: scale(1.05); 
+            box-shadow: 0 0 25px rgba(0,0,0,0.7); 
+        }
+        /* Second Section: Creative Carousel - For memories with more images */
         #section2 {
-            background: linear-gradient(to bottom, #e6f7ff, #ffffff); /* Light blue-white gradient */
+            background: linear-gradient(to bottom, #e6f7ff, #ffffff, #ffcccc); /* Gradient with festive colors */
             text-align: center; /* Centers text */
+            position: relative; /* For additional elements */
         }
         .carousel {
             position: relative; /* For positioning buttons */
-            width: 80%; /* 80% of section width */
-            max-width: 600px; /* Max size */
-            height: 300px; /* Fixed height */
+            width: 85%; /* Wider */
+            max-width: 700px; /* Max size */
+            height: 350px; /* Taller height */
             overflow: hidden; /* Hides overflow */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 0 20px rgba(0,0,0,0.3); /* Shadow */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 0 25px rgba(0,0,0,0.4); /* Shadow */
+            margin-bottom: 20px; /* Space below */
         }
         .carousel img {
             width: 100%; /* Full width */
@@ -137,62 +148,89 @@
             position: absolute; /* Positions over carousel */
             top: 50%; /* Centers vertically */
             transform: translateY(-50%); /* Adjusts position */
-            background: rgba(0,0,0,0.5); /* Semi-transparent */
+            background: rgba(0,0,0,0.7); /* Semi-transparent */
             color: #fff; /* White */
             border: none; /* No border */
-            padding: 10px; /* Space */
+            padding: 15px; /* Space */
             cursor: pointer; /* Hand cursor */
+            border-radius: 50%; /* Circular buttons */
+            font-size: 20px; /* Larger arrows */
         }
-        .carousel .prev { left: 10px; } /* Left button */
-        .carousel .next { right: 10px; } /* Right button */
+        .carousel .prev { left: 15px; } /* Left button */
+        .carousel .next { right: 15px; } /* Right button */
         .memory-text {
             margin-top: 20px; /* Space above */
-            font-size: 20px; /* Text size */
+            font-size: 22px; /* Text size */
             font-style: italic; /* Italic style */
+            background: rgba(255, 255, 255, 0.9); /* Background for text */
+            padding: 15px; /* Padding */
+            border-radius: 10px; /* Rounded */
+            box-shadow: 0 0 10px rgba(0,0,0,0.3); /* Shadow */
         }
+        /* Additional Images in Second Section */
+        .extra-images {
+            display: grid; /* Grid for extra images */
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller grid */
+            gap: 10px; /* Space */
+            max-width: 90%; /* Limits width */
+            margin-top: 30px; /* Space above */
+        }
+        .extra-images img {
+            width: 100%; /* Full width */
+            height: auto; /* Aspect ratio */
+            border-radius: 10px; /* Rounded */
+            box-shadow: 0 0 10px rgba(0,0,0,0.4); /* Shadow */
+            transition: transform 0.3s; /* Hover */
+        }
+        .extra-images img:hover { transform: scale(1.05); }
         /* Third Section: Center Figure - For the tree and messages */
         #section3 {
             background: url('https://via.placeholder.com/1920x1080/ffffff/cccccc?text=Festive+Background') no-repeat center center/cover; /* EDIT: Replace with your own festive background image URL or path */
             position: relative; /* For positioning messages */
         }
         .center-figure {
-            width: 300px; /* Width of tree */
-            height: 400px; /* Height of tree */
-            background: url('https://via.placeholder.com/300x400/228b22/ffffff?text=Christmas+Tree') no-repeat center center/cover; /* EDIT: Replace with your own Christmas tree image URL or path */
-            border-radius: 10px; /* Rounded corners */
+            width: 350px; /* Width of tree */
+            height: 450px; /* Height of tree */
+            background: url('https://via.placeholder.com/350x450/228b22/ffffff?text=Christmas+Tree') no-repeat center center/cover; /* EDIT: Replace with your own Christmas tree image URL or path */
+            border-radius: 15px; /* Rounded corners */
             position: relative; /* For ornaments */
             margin: 0 auto; /* Centers horizontally */
+            box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Shadow */
         }
         .ornament {
             position: absolute; /* Positions on tree */
-            width: 20px; /* Size */
-            height: 20px; /* Size */
+            width: 25px; /* Size */
+            height: 25px; /* Size */
             background: #ffd700; /* Gold color */
             border-radius: 50%; /* Makes it circular */
             cursor: pointer; /* Hand cursor */
-            transition: background 0.3s; /* Smooth color change */
+            transition: background 0.3s, transform 0.3s; /* Smooth changes */
         }
-        .ornament:hover { background: #ff4500; } /* Changes to red on hover */
+        .ornament:hover { 
+            background: #ff4500; 
+            transform: scale(1.2); 
+        }
         .messages {
             position: absolute; /* Positions around tree */
-            top: 10%; /* From top */
-            left: 10%; /* From left */
-            right: 10%; /* From right */
-            bottom: 10%; /* From bottom */
+            top: 5%; /* From top */
+            left: 5%; /* From left */
+            right: 5%; /* From right */
+            bottom: 5%; /* From bottom */
             pointer-events: none; /* Doesn't interfere with clicks */
         }
         .message {
             position: absolute; /* Floats around */
-            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
-            padding: 10px; /* Space inside */
-            border-radius: 5px; /* Rounded corners */
-            box-shadow: 0 0 5px rgba(0,0,0,0.3); /* Shadow */
-            font-size: 14px; /* Text size */
-            animation: float 3s ease-in-out infinite; /* Floating animation */
+            background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+            padding: 12px; /* Space inside */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0,0,0,0.4); /* Shadow */
+            font-size: 16px; /* Text size */
+            animation: float 4s ease-in-out infinite; /* Floating animation */
+            border: 2px solid #ff4500; /* Red border */
         }
         @keyframes float {
-            0%, 100% { transform: translateY(0); } /* Up and down */
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: translateY(0) rotate(0deg); } /* Up and down with slight rotation */
+            50% { transform: translateY(-15px) rotate(5deg); }
         }
         /* Audio - For background music */
         #music {
@@ -200,88 +238,82 @@
         }
         #play-music {
             position: fixed; /* Fixed position */
-            bottom: 20px; /* From bottom */
-            right: 20px; /* From right */
+            bottom: 30px; /* From bottom */
+            right: 30px; /* From right */
             background: #ff4500; /* Red */
             color: #fff; /* White */
             border: none; /* No border */
-            padding: 10px 20px; /* Space */
-            border-radius: 5px; /* Rounded */
+            padding: 15px 25px; /* Space */
+            border-radius: 25px; /* Rounded */
             cursor: pointer; /* Hand cursor */
+            font-weight: bold; /* Bold */
+            box-shadow: 0 0 10px rgba(0,0,0,0.3); /* Shadow */
         }
-        #play-music:hover { background: #ffd700; } /* Gold on hover */
+        #play-music:hover { background: #ffd700; color: #000; } /* Gold on hover */
 
         /* Mobile Styles - Adjustments for phone screens (screens smaller than 768px wide) */
         @media (max-width: 768px) {
             /* Navigation - Smaller buttons for phones */
             nav {
-                padding: 5px; /* Less padding */
+                padding: 10px; /* Less padding */
             }
             nav button {
-                padding: 8px 15px; /* Smaller buttons */
-                margin: 0 5px; /* Less space between */
+                padding: 10px 20px; /* Smaller buttons */
+                margin: 0 10px; /* Less space between */
                 font-size: 14px; /* Smaller text */
             }
             /* Sections - Adjust padding for smaller screens */
             section {
-                padding: 10px; /* Less padding */
-                height: auto; /* Allow sections to be taller if needed, but keep full height for scrolling */
-                min-height: 100vh; /* Ensures at least full screen height */
+                padding: 20px; /* Less padding */
+                min-height: 100vh; /* Ensures full height */
             }
-            /* First Section - Stack wishes and images vertically on phones */
+            /* First Section - Adjustments */
             #section1 {
-                flex-direction: column; /* Stacks vertically */
-                justify-content: center; /* Centers content */
+                padding-top: 80px; /* Less top padding */
             }
             .wishes {
                 max-width: 100%; /* Full width */
-                text-align: center; /* Centers text */
-                margin-bottom: 20px; /* Space below */
             }
             .wishes-box {
-                padding: 15px; /* Less padding on mobile */
-            }
-            .wishes p {
+                padding: 20px; /* Less padding */
                 font-size: 16px; /* Smaller text */
-                margin: 15px 0; /* Less margin */
             }
             .images {
-                max-width: 100%; /* Full width */
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Smaller grid cells */
-                gap: 5px; /* Less gap */
-            }
-            .images img {
-                max-width: 100%; /* Full width in cell */
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller grid */
+                gap: 10px; /* Less gap */
             }
             /* Second Section - Smaller carousel */
             .carousel {
-                width: 90%; /* Wider on small screens */
-                max-width: none; /* No max width */
-                height: 250px; /* Shorter height */
+                width: 95%; /* Wider on small screens */
+                height: 300px; /* Shorter height */
             }
             .memory-text {
                 font-size: 18px; /* Smaller text */
-                margin-top: 15px; /* Less margin */
+                padding: 10px; /* Less padding */
+            }
+            .extra-images {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Smaller */
+                gap: 8px; /* Less gap */
             }
             /* Third Section - Smaller tree and messages */
             .center-figure {
-                width: 250px; /* Smaller width */
-                height: 330px; /* Smaller height */
+                width: 280px; /* Smaller width */
+                height: 360px; /* Smaller height */
             }
             .ornament {
-                width: 15px; /* Smaller ornaments */
-                height: 15px; /* Smaller ornaments */
+                width: 20px; /* Smaller ornaments */
+                height: 20px; /* Smaller ornaments */
             }
             .message {
-                font-size: 12px; /* Smaller text */
-                padding: 8px; /* Less padding */
+                font-size: 14px; /* Smaller text */
+                padding: 10px; /* Less padding */
             }
             /* Play Music Button - Smaller and repositioned for phones */
             #play-music {
-                padding: 8px 15px; /* Smaller */
+                padding: 12px 20px; /* Smaller */
                 font-size: 14px; /* Smaller text */
-                bottom: 10px; /* Closer to bottom */
-                right: 10px; /* Closer to right */
+                bottom: 20px; /* Closer to bottom */
+                right: 20px; /* Closer to right */
             }
             /* Snowflakes - Smaller on phones */
             .snowflake {
@@ -306,14 +338,12 @@
         <div class="wishes">
             <!-- EDIT: Change the heading to personalize it -->
             <h1>Merry Christmas, [Your Girlfriend's Name]!</h1>
-            <!-- Wishes Box - This is the box around your text. EDIT: Replace the paragraphs inside with your own wishes -->
+            <!-- Wishes Box - This is the box around your text. EDIT: Replace the paragraphs inside with your own wishes. This is visible in raw form for easy editing. -->
             <div class="wishes-box">
-                <p>This holiday season, I want to remind you how much you mean to me.</p>
-                <p>Your smile lights up my world like the brightest Christmas tree.</p>
-                <p>Every moment with you feels like a gift I never want to unwrap.</p>
-                <p>Here's to many more adventures, laughter, and love under the mistletoe.</p>
-                <p>You are my everything—my joy, my peace, my forever.</p>
-                <!-- EDIT: Add more <p> tags here if you want more wishes -->
+                <p>Dear [Your Girlfriend's Name], this Christmas, I want you to know how much you mean to me. Your love is the greatest gift I've ever received.</p>
+                <p>Every moment with you feels magical, like the sparkle of Christmas lights. I cherish our time together and look forward to many more holidays.</p>
+                <p>You make my world brighter. Thank you for being you. Merry Christmas!</p>
+                <!-- EDIT: Add more <p> tags here if you want more wishes, or remove some -->
             </div>
         </div>
         <div class="images">
@@ -322,38 +352,4 @@
             <img src="https://via.placeholder.com/300x200/ffcccc/000000?text=Your+Photo+2" alt="Placeholder Photo 2">
             <img src="https://via.placeholder.com/300x200/ffcccc/000000?text=Your+Photo+3" alt="Placeholder Photo 3">
             <img src="https://via.placeholder.com/300x200/ffcccc/000000?text=Your+Photo+4" alt="Placeholder Photo 4">
-            <!-- EDIT: Add more <img> tags for more photos -->
-        </div>
-    </section>
-
-    <!-- Second Section: Memory Carousel -->
-    <section id="section2">
-        <!-- EDIT: Change the heading -->
-        <h1>Our Christmas Memories</h1>
-        <div class="carousel">
-            <!-- EDIT: Replace image sources with your own (e.g., 'images/memory1.jpg'). Add/remove as needed -->
-            <img src="https://via.placeholder.com/600x300/e6f7ff/000000?text=Memory+1" alt="Memory 1" class="active">
-            <img src="https://via.placeholder.com/600x300/e6f7ff/000000?text=Memory+2" alt="Memory 2">
-            <img src="https://via.placeholder.com/600x300/e6f7ff/000000?text=Memory+3" alt="Memory 3">
-            <button class="prev" onclick="prevMemory()">❮</button> <!-- Left arrow button -->
-            <button class="next" onclick="nextMemory()">❯</button> <!-- Right arrow button -->
-        </div>
-        <!-- EDIT: This text changes with the carousel. Update the array in JS below -->
-        <p class="memory-text" id="memory-text">That time we baked cookies and laughed all night!</p>
-    </section>
-
-    <!-- Third Section: Center Figure and Messages -->
-    <section id="section3">
-        <!-- EDIT: Change the heading -->
-        <h1>My Final Wish for You</h1>
-        <div class="center-figure">
-            <!-- EDIT: These are ornaments on the tree. You can add more or change positions -->
-            <div class="ornament" style="top: 20%; left: 30%;"></div>
-            <div class="ornament" style="top: 40%; right: 25%;"></div>
-            <div class="ornament" style="bottom: 30%; left: 40%;"></div>
-            <!-- EDIT: Add more ornaments like this: <div class="ornament" style="top: 50%; left: 50%;"></div> -->
-        </div>
-        <div class="messages">
-            <!-- EDIT: These are floating messages. Change text and positions as needed -->
-            <div class="message" style="top: 10%; left: 20%;">May your days be merry and bright!</div>
-            <div class="message" style="top: 30%; right: 15%;">Love you more
+            <img src="https://via.placeholder.com/300x200/ffcccc/000000?text=Your+Photo+5" alt="Placeholder Photo 5">
