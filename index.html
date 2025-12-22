@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- This meta tag ensures the page displays correctly on different devices -->
+    <!-- This meta tag ensures the page displays correctly on different devices, including phones -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- EDIT: Change the title to something personal, like "Christmas Wishes for [Her Name]" -->
     <title>Christmas Wishes for [Your Girlfriend's Name]</title>
@@ -72,14 +72,14 @@
         @keyframes fadeIn {
             to { opacity: 1; } /* Becomes visible */
         }
-        /* First Section: Wishes - Layout for wishes and images */
+        /* First Section: Wishes and Images - Layout for wishes and images */
         #section1 {
             background: url('https://via.placeholder.com/1920x1080/ffffff/cccccc?text=Snowy+Background') no-repeat center center/cover; /* EDIT: Replace with your own snowy background image URL or path (e.g., 'images/snow.jpg') */
-            flex-direction: row; /* Side-by-side layout */
+            flex-direction: row; /* Side-by-side layout on larger screens */
             justify-content: space-around; /* Spaces out wishes and images */
         }
         .wishes {
-            max-width: 50%; /* Takes half the width */
+            max-width: 50%; /* Takes half the width on larger screens */
             text-align: left; /* Left-aligns text */
         }
         .wishes p {
@@ -88,7 +88,7 @@
             line-height: 1.5; /* Line spacing */
         }
         .images {
-            max-width: 40%; /* Takes 40% width */
+            max-width: 40%; /* Takes 40% width on larger screens */
         }
         .images img {
             width: 100%; /* Full width of container */
@@ -199,6 +199,83 @@
             cursor: pointer; /* Hand cursor */
         }
         #play-music:hover { background: #ffd700; } /* Gold on hover */
+
+        /* Mobile Styles - Adjustments for phone screens (screens smaller than 768px wide) */
+        @media (max-width: 768px) {
+            /* Navigation - Smaller buttons for phones */
+            nav {
+                padding: 5px; /* Less padding */
+            }
+            nav button {
+                padding: 8px 15px; /* Smaller buttons */
+                margin: 0 5px; /* Less space between */
+                font-size: 14px; /* Smaller text */
+            }
+            /* Sections - Adjust padding for smaller screens */
+            section {
+                padding: 10px; /* Less padding */
+                height: auto; /* Allow sections to be taller if needed, but keep full height for scrolling */
+                min-height: 100vh; /* Ensures at least full screen height */
+            }
+            /* First Section - Stack wishes and images vertically on phones */
+            #section1 {
+                flex-direction: column; /* Stacks vertically */
+                justify-content: center; /* Centers content */
+            }
+            .wishes {
+                max-width: 100%; /* Full width */
+                text-align: center; /* Centers text */
+                margin-bottom: 20px; /* Space below */
+            }
+            .wishes p {
+                font-size: 16px; /* Smaller text */
+                margin: 15px 0; /* Less margin */
+            }
+            .images {
+                max-width: 100%; /* Full width */
+                display: flex; /* Flex for side-by-side images if multiple */
+                flex-wrap: wrap; /* Wraps images */
+                justify-content: center; /* Centers images */
+            }
+            .images img {
+                max-width: 200px; /* Smaller images */
+                margin: 5px; /* Less margin */
+            }
+            /* Second Section - Smaller carousel */
+            .carousel {
+                width: 90%; /* Wider on small screens */
+                max-width: none; /* No max width */
+                height: 250px; /* Shorter height */
+            }
+            .memory-text {
+                font-size: 18px; /* Smaller text */
+                margin-top: 15px; /* Less margin */
+            }
+            /* Third Section - Smaller tree and messages */
+            .center-figure {
+                width: 250px; /* Smaller width */
+                height: 330px; /* Smaller height */
+            }
+            .ornament {
+                width: 15px; /* Smaller ornaments */
+                height: 15px; /* Smaller ornaments */
+            }
+            .message {
+                font-size: 12px; /* Smaller text */
+                padding: 8px; /* Less padding */
+            }
+            /* Play Music Button - Smaller and repositioned for phones */
+            #play-music {
+                padding: 8px 15px; /* Smaller */
+                font-size: 14px; /* Smaller text */
+                bottom: 10px; /* Closer to bottom */
+                right: 10px; /* Closer to right */
+            }
+            /* Snowflakes - Smaller on phones */
+            .snowflake {
+                font-size: 15px; /* Smaller snowflakes */
+            }
+        }
     </style>
 </head>
 <body>
@@ -290,33 +367,4 @@
 
         // Scrolling Function - Smoothly scrolls to a section
         function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); // Scrolls smoothly
-        }
-
-        // Carousel Script - Handles memory carousel
-        let currentMemory = 0; // Tracks current image
-        // EDIT: Update this array with your own memory texts (must match number of images)
-        const memories = ['That time we baked cookies and laughed all night!', 'Our first snowy walk hand in hand.', 'Dancing to Christmas songs in the living room.'];
-        const images = document.querySelectorAll('.carousel img'); // Gets all carousel images
-        function updateCarousel() {
-            images.forEach((img, i) => img.classList.toggle('active', i === currentMemory)); // Shows only active image
-            document.getElementById('memory-text').textContent = memories[currentMemory]; // Updates text
-        }
-        function nextMemory() {
-            currentMemory = (currentMemory + 1) % images.length; // Moves to next (loops)
-            updateCarousel();
-        }
-        function prevMemory() {
-            currentMemory = (currentMemory - 1 + images.length) % images.length; // Moves to previous (loops)
-            updateCarousel();
-        }
-
-        // Music Script - Plays music on button click
-        function playMusic() {
-            const audio = document.getElementById('music'); // Gets audio element
-            audio.play(); // Starts playing
-            document.getElementById('play-music').style.display = 'none'; // Hides button after playing
-        }
-    </script>
-</body>
-</html>
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); // Scrolls
