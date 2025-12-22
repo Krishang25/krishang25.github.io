@@ -2,218 +2,222 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- This meta tag ensures the page displays correctly on different devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- EDIT: Change the title to something personal, like "Christmas Wishes for [Her Name]" -->
     <title>Christmas Wishes for [Your Girlfriend's Name]</title>
     <style>
-        /* Global Styles */
+        /* Global Styles - These apply to the whole page */
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #ffcccc, #ffffff); /* Festive red-white gradient */
-            color: #333;
-            overflow-x: hidden;
-            position: relative;
+            font-family: 'Arial', sans-serif; /* EDIT: You can change the font if you want, e.g., 'Times New Roman' */
+            background: linear-gradient(to bottom, #ffcccc, #ffffff); /* Festive red-white gradient background */
+            color: #333; /* Text color */
+            overflow-x: hidden; /* Prevents horizontal scrolling */
+            position: relative; /* Allows positioning of elements like snowflakes */
         }
-        /* Snowflakes Animation */
+        /* Snowflakes Animation - Creates falling snow effect */
         .snowflake {
             position: absolute;
-            top: -10px;
-            color: #fff;
-            font-size: 20px;
-            animation: fall 10s linear infinite;
+            top: -10px; /* Starts above the screen */
+            color: #fff; /* White color for snow */
+            font-size: 20px; /* Size of snowflakes */
+            animation: fall 10s linear infinite; /* Animation to make them fall */
         }
         @keyframes fall {
-            to { transform: translateY(100vh); }
+            to { transform: translateY(100vh); } /* Moves snowflake down the screen */
         }
-        /* Twinkling Lights Border */
+        /* Twinkling Lights Border - Adds a glowing effect to sections */
         .twinkle {
-            border: 2px solid #ffd700;
-            animation: twinkle 2s infinite alternate;
+            border: 2px solid #ffd700; /* Gold border */
+            animation: twinkle 2s infinite alternate; /* Alternates color for twinkling */
         }
         @keyframes twinkle {
-            0% { border-color: #ffd700; }
-            100% { border-color: #ff4500; }
+            0% { border-color: #ffd700; } /* Gold */
+            100% { border-color: #ff4500; } /* Red */
         }
-        /* Navigation */
+        /* Navigation Bar - Fixed at the top for jumping between sections */
         nav {
-            position: fixed;
+            position: fixed; /* Stays at the top even when scrolling */
             top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            z-index: 1000;
+            width: 100%; /* Full width */
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+            color: #fff; /* White text */
+            text-align: center; /* Centers the buttons */
+            padding: 10px; /* Space around content */
+            z-index: 1000; /* Ensures it stays on top */
         }
         nav button {
-            background: #ff4500;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            cursor: pointer;
-            border-radius: 5px;
+            background: #ff4500; /* Red background */
+            color: #fff; /* White text */
+            border: none; /* No border */
+            padding: 10px 20px; /* Space inside buttons */
+            margin: 0 10px; /* Space between buttons */
+            cursor: pointer; /* Hand cursor on hover */
+            border-radius: 5px; /* Rounded corners */
         }
-        nav button:hover { background: #ffd700; }
-        /* Sections */
+        nav button:hover { background: #ffd700; } /* Changes to gold on hover */
+        /* Sections - Each "page" is a section */
         section {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            opacity: 0;
-            animation: fadeIn 1s ease-in-out forwards;
+            height: 100vh; /* Full viewport height */
+            display: flex; /* Uses flexbox for layout */
+            flex-direction: column; /* Stacks items vertically */
+            justify-content: center; /* Centers content vertically */
+            align-items: center; /* Centers content horizontally */
+            padding: 20px; /* Space around content */
+            opacity: 0; /* Starts invisible */
+            animation: fadeIn 1s ease-in-out forwards; /* Fades in on load */
         }
         @keyframes fadeIn {
-            to { opacity: 1; }
+            to { opacity: 1; } /* Becomes visible */
         }
-        /* First Section: Wishes */
+        /* First Section: Wishes - Layout for wishes and images */
         #section1 {
-            background: url('https://via.placeholder.com/1920x1080/ffffff/cccccc?text=Snowy+Background') no-repeat center center/cover; /* Replace with your snowy image */
-            flex-direction: row;
-            justify-content: space-around;
+            background: url('https://via.placeholder.com/1920x1080/ffffff/cccccc?text=Snowy+Background') no-repeat center center/cover; /* EDIT: Replace with your own snowy background image URL or path (e.g., 'images/snow.jpg') */
+            flex-direction: row; /* Side-by-side layout */
+            justify-content: space-around; /* Spaces out wishes and images */
         }
         .wishes {
-            max-width: 50%;
-            text-align: left;
+            max-width: 50%; /* Takes half the width */
+            text-align: left; /* Left-aligns text */
         }
         .wishes p {
-            margin: 20px 0;
-            font-size: 18px;
-            line-height: 1.5;
+            margin: 20px 0; /* Space between paragraphs */
+            font-size: 18px; /* Text size */
+            line-height: 1.5; /* Line spacing */
         }
         .images {
-            max-width: 40%;
+            max-width: 40%; /* Takes 40% width */
         }
         .images img {
-            width: 100%;
-            max-width: 300px;
-            margin: 10px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-            transition: transform 0.3s;
+            width: 100%; /* Full width of container */
+            max-width: 300px; /* Max size */
+            margin: 10px; /* Space around images */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Shadow effect */
+            transition: transform 0.3s; /* Smooth hover effect */
         }
-        .images img:hover { transform: scale(1.05); }
-        /* Second Section: Creative Carousel */
+        .images img:hover { transform: scale(1.05); } /* Slightly enlarges on hover */
+        /* Second Section: Creative Carousel - For memories */
         #section2 {
-            background: linear-gradient(to bottom, #e6f7ff, #ffffff);
-            text-align: center;
+            background: linear-gradient(to bottom, #e6f7ff, #ffffff); /* Light blue-white gradient */
+            text-align: center; /* Centers text */
         }
         .carousel {
-            position: relative;
-            width: 80%;
-            max-width: 600px;
-            height: 300px;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            position: relative; /* For positioning buttons */
+            width: 80%; /* 80% of section width */
+            max-width: 600px; /* Max size */
+            height: 300px; /* Fixed height */
+            overflow: hidden; /* Hides overflow */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 20px rgba(0,0,0,0.3); /* Shadow */
         }
         .carousel img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            transition: opacity 0.5s;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            object-fit: cover; /* Covers the area without distortion */
+            position: absolute; /* Overlaps images */
+            transition: opacity 0.5s; /* Smooth fade */
         }
-        .carousel img.active { opacity: 1; }
-        .carousel img:not(.active) { opacity: 0; }
+        .carousel img.active { opacity: 1; } /* Shows active image */
+        .carousel img:not(.active) { opacity: 0; } /* Hides inactive images */
         .carousel button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
-            color: #fff;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
+            position: absolute; /* Positions over carousel */
+            top: 50%; /* Centers vertically */
+            transform: translateY(-50%); /* Adjusts position */
+            background: rgba(0,0,0,0.5); /* Semi-transparent */
+            color: #fff; /* White */
+            border: none; /* No border */
+            padding: 10px; /* Space */
+            cursor: pointer; /* Hand cursor */
         }
-        .carousel .prev { left: 10px; }
-        .carousel .next { right: 10px; }
+        .carousel .prev { left: 10px; } /* Left button */
+        .carousel .next { right: 10px; } /* Right button */
         .memory-text {
-            margin-top: 20px;
-            font-size: 20px;
-            font-style: italic;
+            margin-top: 20px; /* Space above */
+            font-size: 20px; /* Text size */
+            font-style: italic; /* Italic style */
         }
-        /* Third Section: Center Figure */
+        /* Third Section: Center Figure - For the tree and messages */
         #section3 {
-            background: url('https://via.placeholder.com/1920x1080/ffffff/cccccc?text=Festive+Background') no-repeat center center/cover;
-            position: relative;
+            background: url('https://via.placeholder.com/1920x1080/ffffff/cccccc?text=Festive+Background') no-repeat center center/cover; /* EDIT: Replace with your own festive background image URL or path */
+            position: relative; /* For positioning messages */
         }
         .center-figure {
-            width: 300px;
-            height: 400px;
-            background: url('https://via.placeholder.com/300x400/228b22/ffffff?text=Christmas+Tree') no-repeat center center/cover; /* Replace with your tree image */
-            border-radius: 10px;
-            position: relative;
-            margin: 0 auto;
+            width: 300px; /* Width of tree */
+            height: 400px; /* Height of tree */
+            background: url('https://via.placeholder.com/300x400/228b22/ffffff?text=Christmas+Tree') no-repeat center center/cover; /* EDIT: Replace with your own Christmas tree image URL or path */
+            border-radius: 10px; /* Rounded corners */
+            position: relative; /* For ornaments */
+            margin: 0 auto; /* Centers horizontally */
         }
         .ornament {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #ffd700;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background 0.3s;
+            position: absolute; /* Positions on tree */
+            width: 20px; /* Size */
+            height: 20px; /* Size */
+            background: #ffd700; /* Gold color */
+            border-radius: 50%; /* Makes it circular */
+            cursor: pointer; /* Hand cursor */
+            transition: background 0.3s; /* Smooth color change */
         }
-        .ornament:hover { background: #ff4500; }
+        .ornament:hover { background: #ff4500; } /* Changes to red on hover */
         .messages {
-            position: absolute;
-            top: 10%;
-            left: 10%;
-            right: 10%;
-            bottom: 10%;
-            pointer-events: none;
+            position: absolute; /* Positions around tree */
+            top: 10%; /* From top */
+            left: 10%; /* From left */
+            right: 10%; /* From right */
+            bottom: 10%; /* From bottom */
+            pointer-events: none; /* Doesn't interfere with clicks */
         }
         .message {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0,0,0,0.3);
-            font-size: 14px;
-            animation: float 3s ease-in-out infinite;
+            position: absolute; /* Floats around */
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            padding: 10px; /* Space inside */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 0 5px rgba(0,0,0,0.3); /* Shadow */
+            font-size: 14px; /* Text size */
+            animation: float 3s ease-in-out infinite; /* Floating animation */
         }
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
+            0%, 100% { transform: translateY(0); } /* Up and down */
             50% { transform: translateY(-10px); }
         }
-        /* Audio */
+        /* Audio - For background music */
         #music {
-            display: none;
+            display: none; /* Hidden until played */
         }
         #play-music {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #ff4500;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* From bottom */
+            right: 20px; /* From right */
+            background: #ff4500; /* Red */
+            color: #fff; /* White */
+            border: none; /* No border */
+            padding: 10px 20px; /* Space */
+            border-radius: 5px; /* Rounded */
+            cursor: pointer; /* Hand cursor */
         }
-        #play-music:hover { background: #ffd700; }
+        #play-music:hover { background: #ffd700; } /* Gold on hover */
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation Bar - Buttons to jump to sections -->
     <nav>
-        <button onclick="scrollToSection('section1')">Wishes</button>
-        <button onclick="scrollToSection('section2')">Memories</button>
-        <button onclick="scrollToSection('section3')">Final Wish</button>
+        <button onclick="scrollToSection('section1')">Wishes</button> <!-- EDIT: Change button text if needed -->
+        <button onclick="scrollToSection('section2')">Memories</button> <!-- EDIT: Change button text if needed -->
+        <button onclick="scrollToSection('section3')">Final Wish</button> <!-- EDIT: Change button text if needed -->
     </nav>
 
-    <!-- Snowflakes -->
+    <!-- Snowflakes Container - Where snowflakes are added dynamically -->
     <div id="snowflakes"></div>
 
-    <!-- Sections -->
+    <!-- First Section: Wishes and Images -->
     <section id="section1" class="twinkle">
         <div class="wishes">
+            <!-- EDIT: Change the heading to personalize it -->
             <h1>Merry Christmas, [Your Girlfriend's Name]!</h1>
+            <!-- EDIT: Replace these paragraphs with your own short wishes. Keep them short! -->
             <p>This holiday season, I want to remind you how much you mean to me.</p>
             <p>Your smile lights up my world like the brightest Christmas tree.</p>
             <p>Every moment with you feels like a gift I never want to unwrap.</p>
@@ -221,31 +225,41 @@
             <p>You are my everything—my joy, my peace, my forever.</p>
         </div>
         <div class="images">
-            <img src="images/photo1.jpg" alt="Us together"> <!-- Replace with your image path -->
-            <img src="images/photo2.jpg" alt="A special memory"> <!-- Replace with your image path -->
+            <!-- EDIT: Replace 'images/photo1.jpg' with your actual image paths (upload to your GitHub repo) -->
+            <img src="images/photo1.jpg" alt="Us together">
+            <!-- EDIT: Add more <img> tags if you have more photos -->
+            <img src="images/photo2.jpg" alt="A special memory">
         </div>
     </section>
 
+    <!-- Second Section: Memory Carousel -->
     <section id="section2">
+        <!-- EDIT: Change the heading -->
         <h1>Our Christmas Memories</h1>
         <div class="carousel">
-            <img src="images/memory1.jpg" alt="Memory 1" class="active"> <!-- Replace with your images -->
+            <!-- EDIT: Replace image sources with your own (e.g., 'images/memory1.jpg'). Add/remove as needed -->
+            <img src="images/memory1.jpg" alt="Memory 1" class="active">
             <img src="images/memory2.jpg" alt="Memory 2">
             <img src="images/memory3.jpg" alt="Memory 3">
-            <button class="prev" onclick="prevMemory()">❮</button>
-            <button class="next" onclick="nextMemory()">❯</button>
+            <button class="prev" onclick="prevMemory()">❮</button> <!-- Left arrow button -->
+            <button class="next" onclick="nextMemory()">❯</button> <!-- Right arrow button -->
         </div>
+        <!-- EDIT: This text changes with the carousel. Update the array in JS below -->
         <p class="memory-text" id="memory-text">That time we baked cookies and laughed all night!</p>
     </section>
 
+    <!-- Third Section: Center Figure and Messages -->
     <section id="section3">
+        <!-- EDIT: Change the heading -->
         <h1>My Final Wish for You</h1>
         <div class="center-figure">
+            <!-- EDIT: These are ornaments on the tree. You can add more or change positions -->
             <div class="ornament" style="top: 20%; left: 30%;"></div>
             <div class="ornament" style="top: 40%; right: 25%;"></div>
             <div class="ornament" style="bottom: 30%; left: 40%;"></div>
         </div>
         <div class="messages">
+            <!-- EDIT: These are floating messages. Change text and positions as needed -->
             <div class="message" style="top: 10%; left: 20%;">May your days be merry and bright!</div>
             <div class="message" style="top: 30%; right: 15%;">Love you more than words can say.</div>
             <div class="message" style="bottom: 20%; left: 25%;">Forever yours, under the stars.</div>
@@ -253,52 +267,55 @@
         </div>
     </section>
 
-    <!-- Audio -->
-    <audio id="music" loop>
-        <source src="music/jingle-bells.mp3" type="audio/mpeg"> <!-- Replace with your audio file path -->
+    <!-- Audio Element - For background music -->
+    <audio id="music" loop> <!-- Loop means it repeats -->
+        <!-- EDIT: Replace with your own audio file path (e.g., 'music/jingle-bells.mp3'). Upload to GitHub repo -->
+        <source src="music/jingle-bells.mp3" type="audio/mpeg">
     </audio>
-    <button id="play-music" onclick="playMusic()">Play Christmas Music</button>
+    <!-- Play Music Button - Click to start music -->
+    <button id="play-music" onclick="playMusic()">Play Christmas Music</button> <!-- EDIT: Change button text if needed -->
 
     <script>
-        // Snowflakes
+        // Snowflakes Script - Creates and animates snowflakes
         function createSnowflake() {
-            const snowflake = document.createElement('div');
-            snowflake.className = 'snowflake';
-            snowflake.textContent = '❄';
-            snowflake.style.left = Math.random() * 100 + 'vw';
-            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
-            document.getElementById('snowflakes').appendChild(snowflake);
-            setTimeout(() => snowflake.remove(), 10000);
+            const snowflake = document.createElement('div'); // Creates a new div for each snowflake
+            snowflake.className = 'snowflake'; // Applies CSS class
+            snowflake.textContent = '❄'; // Snowflake emoji
+            snowflake.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's'; // Random fall speed
+            document.getElementById('snowflakes').appendChild(snowflake); // Adds to page
+            setTimeout(() => snowflake.remove(), 10000); // Removes after 10 seconds
         }
-        setInterval(createSnowflake, 200);
+        setInterval(createSnowflake, 200); // Creates a new snowflake every 200ms
 
-        // Scrolling
+        // Scrolling Function - Smoothly scrolls to a section
         function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); // Scrolls smoothly
         }
 
-        // Carousel
-        let currentMemory = 0;
+        // Carousel Script - Handles memory carousel
+        let currentMemory = 0; // Tracks current image
+        // EDIT: Update this array with your own memory texts (must match number of images)
         const memories = ['That time we baked cookies and laughed all night!', 'Our first snowy walk hand in hand.', 'Dancing to Christmas songs in the living room.'];
-        const images = document.querySelectorAll('.carousel img');
+        const images = document.querySelectorAll('.carousel img'); // Gets all carousel images
         function updateCarousel() {
-            images.forEach((img, i) => img.classList.toggle('active', i === currentMemory));
-            document.getElementById('memory-text').textContent = memories[currentMemory];
+            images.forEach((img, i) => img.classList.toggle('active', i === currentMemory)); // Shows only active image
+            document.getElementById('memory-text').textContent = memories[currentMemory]; // Updates text
         }
         function nextMemory() {
-            currentMemory = (currentMemory + 1) % images.length;
+            currentMemory = (currentMemory + 1) % images.length; // Moves to next (loops)
             updateCarousel();
         }
         function prevMemory() {
-            currentMemory = (currentMemory - 1 + images.length) % images.length;
+            currentMemory = (currentMemory - 1 + images.length) % images.length; // Moves to previous (loops)
             updateCarousel();
         }
 
-        // Music
+        // Music Script - Plays music on button click
         function playMusic() {
-            const audio = document.getElementById('music');
-            audio.play();
-            document.getElementById('play-music').style.display = 'none';
+            const audio = document.getElementById('music'); // Gets audio element
+            audio.play(); // Starts playing
+            document.getElementById('play-music').style.display = 'none'; // Hides button after playing
         }
     </script>
 </body>
