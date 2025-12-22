@@ -1,38 +1,305 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>KRISHANG</title>
-  <meta charset="UTF-8">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 20px;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-    }
-    h1, h2 {
-      color: #333;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Wishes for [Your Girlfriend's Name]</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffcccc, #ffffff); /* Festive red-white gradient */
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Snowflakes Animation */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #fff;
+            font-size: 20px;
+            animation: fall 10s linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+        /* Twinkling Lights Border */
+        .twinkle {
+            border: 2px solid #ffd700;
+            animation: twinkle 2s infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { border-color: #ffd700; }
+            100% { border-color: #ff4500; }
+        }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            z-index: 1000;
+        }
+        nav button {
+            background: #ff4500;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        nav button:hover { background: #ffd700; }
+        /* Sections */
+        section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        /* First Section: Wishes */
+        #section1 {
+            background: url('https://via.placeholder.com/1920x1080/ffffff/cccccc?text=Snowy+Background') no-repeat center center/cover; /* Replace with your snowy image */
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .wishes {
+            max-width: 50%;
+            text-align: left;
+        }
+        .wishes p {
+            margin: 20px 0;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        .images {
+            max-width: 40%;
+        }
+        .images img {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+        .images img:hover { transform: scale(1.05); }
+        /* Second Section: Creative Carousel */
+        #section2 {
+            background: linear-gradient(to bottom, #e6f7ff, #ffffff);
+            text-align: center;
+        }
+        .carousel {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            transition: opacity 0.5s;
+        }
+        .carousel img.active { opacity: 1; }
+        .carousel img:not(.active) { opacity: 0; }
+        .carousel button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .carousel .prev { left: 10px; }
+        .carousel .next { right: 10px; }
+        .memory-text {
+            margin-top: 20px;
+            font-size: 20px;
+            font-style: italic;
+        }
+        /* Third Section: Center Figure */
+        #section3 {
+            background: url('https://via.placeholder.com/1920x1080/ffffff/cccccc?text=Festive+Background') no-repeat center center/cover;
+            position: relative;
+        }
+        .center-figure {
+            width: 300px;
+            height: 400px;
+            background: url('https://via.placeholder.com/300x400/228b22/ffffff?text=Christmas+Tree') no-repeat center center/cover; /* Replace with your tree image */
+            border-radius: 10px;
+            position: relative;
+            margin: 0 auto;
+        }
+        .ornament {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ffd700;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .ornament:hover { background: #ff4500; }
+        .messages {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            right: 10%;
+            bottom: 10%;
+            pointer-events: none;
+        }
+        .message {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            font-size: 14px;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        /* Audio */
+        #music {
+            display: none;
+        }
+        #play-music {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff4500;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #play-music:hover { background: #ffd700; }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <button onclick="scrollToSection('section1')">Wishes</button>
+        <button onclick="scrollToSection('section2')">Memories</button>
+        <button onclick="scrollToSection('section3')">Final Wish</button>
+    </nav>
 
-<h1>Hi, I'm Krishang</h1>
-<p>I have a strong curiosity about the fundamental working of the systems and technologies around me.  I actively explore new concepts, learn through building, and enjoy experimenting with electronics and embedded systems to turn ideas into practical implementations.I am particularly interested in hardware-driven solutions that address real-world problems..</p>
+    <!-- Snowflakes -->
+    <div id="snowflakes"></div>
 
-<div class="card">
-  <h2>project1</h2>
-  <p><b>Problem:</b> description</p>
-  <p><b>Solution:</b> solution </p>
-  <p><b>Tech:</b> modules</p>
-</div>
+    <!-- Sections -->
+    <section id="section1" class="twinkle">
+        <div class="wishes">
+            <h1>Merry Christmas, [Your Girlfriend's Name]!</h1>
+            <p>This holiday season, I want to remind you how much you mean to me.</p>
+            <p>Your smile lights up my world like the brightest Christmas tree.</p>
+            <p>Every moment with you feels like a gift I never want to unwrap.</p>
+            <p>Here's to many more adventures, laughter, and love under the mistletoe.</p>
+            <p>You are my everything—my joy, my peace, my forever.</p>
+        </div>
+        <div class="images">
+            <img src="images/photo1.jpg" alt="Us together"> <!-- Replace with your image path -->
+            <img src="images/photo2.jpg" alt="A special memory"> <!-- Replace with your image path -->
+        </div>
+    </section>
 
+    <section id="section2">
+        <h1>Our Christmas Memories</h1>
+        <div class="carousel">
+            <img src="images/memory1.jpg" alt="Memory 1" class="active"> <!-- Replace with your images -->
+            <img src="images/memory2.jpg" alt="Memory 2">
+            <img src="images/memory3.jpg" alt="Memory 3">
+            <button class="prev" onclick="prevMemory()">❮</button>
+            <button class="next" onclick="nextMemory()">❯</button>
+        </div>
+        <p class="memory-text" id="memory-text">That time we baked cookies and laughed all night!</p>
+    </section>
 
+    <section id="section3">
+        <h1>My Final Wish for You</h1>
+        <div class="center-figure">
+            <div class="ornament" style="top: 20%; left: 30%;"></div>
+            <div class="ornament" style="top: 40%; right: 25%;"></div>
+            <div class="ornament" style="bottom: 30%; left: 40%;"></div>
+        </div>
+        <div class="messages">
+            <div class="message" style="top: 10%; left: 20%;">May your days be merry and bright!</div>
+            <div class="message" style="top: 30%; right: 15%;">Love you more than words can say.</div>
+            <div class="message" style="bottom: 20%; left: 25%;">Forever yours, under the stars.</div>
+            <div class="message" style="bottom: 40%; right: 20%;">Here's to a lifetime of happiness.</div>
+        </div>
+    </section>
+
+    <!-- Audio -->
+    <audio id="music" loop>
+        <source src="music/jingle-bells.mp3" type="audio/mpeg"> <!-- Replace with your audio file path -->
+    </audio>
+    <button id="play-music" onclick="playMusic()">Play Christmas Music</button>
+
+    <script>
+        // Snowflakes
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
+            document.getElementById('snowflakes').appendChild(snowflake);
+            setTimeout(() => snowflake.remove(), 10000);
+        }
+        setInterval(createSnowflake, 200);
+
+        // Scrolling
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Carousel
+        let currentMemory = 0;
+        const memories = ['That time we baked cookies and laughed all night!', 'Our first snowy walk hand in hand.', 'Dancing to Christmas songs in the living room.'];
+        const images = document.querySelectorAll('.carousel img');
+        function updateCarousel() {
+            images.forEach((img, i) => img.classList.toggle('active', i === currentMemory));
+            document.getElementById('memory-text').textContent = memories[currentMemory];
+        }
+        function nextMemory() {
+            currentMemory = (currentMemory + 1) % images.length;
+            updateCarousel();
+        }
+        function prevMemory() {
+            currentMemory = (currentMemory - 1 + images.length) % images.length;
+            updateCarousel();
+        }
+
+        // Music
+        function playMusic() {
+            const audio = document.getElementById('music');
+            audio.play();
+            document.getElementById('play-music').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
