@@ -5,7 +5,7 @@
     <!-- This meta tag ensures the page displays correctly on different devices, including phones -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- EDIT: Change the title to something personal, like "Christmas Wishes for [Her Name]" -->
-    <title>Merry Christmas sweetheart </title>
+    <title>Christmas Wishes for [Your Girlfriend's Name]</title>
     <style>
         /* Global Styles - These apply to the whole page */
         body {
@@ -78,9 +78,18 @@
             flex-direction: row; /* Side-by-side layout on larger screens */
             justify-content: space-around; /* Spaces out wishes and images */
         }
-        .wishes { hihihihihihih
+        .wishes {
             max-width: 50%; /* Takes half the width on larger screens */
             text-align: left; /* Left-aligns text */
+        }
+        /* Wishes Box - A styled box around the wishes text */
+        .wishes-box {
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border: 2px solid #ff4500; /* Red border */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Space inside the box */
+            box-shadow: 0 0 15px rgba(0,0,0,0.3); /* Shadow for depth */
+            margin-bottom: 20px; /* Space below the box */
         }
         .wishes p {
             margin: 20px 0; /* Space between paragraphs */
@@ -89,11 +98,13 @@
         }
         .images {
             max-width: 40%; /* Takes 40% width on larger screens */
+            display: grid; /* Grid layout for multiple images */
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+            gap: 10px; /* Space between images */
         }
         .images img {
-            width: 100%; /* Full width of container */
-            max-width: 300px; /* Max size */
-            margin: 10px; /* Space around images */
+            width: 100%; /* Full width of grid cell */
+            height: auto; /* Maintains aspect ratio */
             border-radius: 10px; /* Rounded corners */
             box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Shadow effect */
             transition: transform 0.3s; /* Smooth hover effect */
@@ -227,19 +238,20 @@
                 text-align: center; /* Centers text */
                 margin-bottom: 20px; /* Space below */
             }
+            .wishes-box {
+                padding: 15px; /* Less padding on mobile */
+            }
             .wishes p {
                 font-size: 16px; /* Smaller text */
                 margin: 15px 0; /* Less margin */
             }
             .images {
                 max-width: 100%; /* Full width */
-                display: flex; /* Flex for side-by-side images if multiple */
-                flex-wrap: wrap; /* Wraps images */
-                justify-content: center; /* Centers images */
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Smaller grid cells */
+                gap: 5px; /* Less gap */
             }
             .images img {
-                max-width: 200px; /* Smaller images */
-                margin: 5px; /* Less margin */
+                max-width: 100%; /* Full width in cell */
             }
             /* Second Section - Smaller carousel */
             .carousel {
@@ -281,9 +293,9 @@
 <body>
     <!-- Navigation Bar - Buttons to jump to sections -->
     <nav>
-        <button onclick="scrollToSection('section1')">💌</button> <!-- EDIT: Change button text if needed -->
-        <button onclick="scrollToSection('section2')">Merry Christmas</button> <!-- EDIT: Change button text if needed -->
-        <button onclick="scrollToSection('section3')">💞</button> <!-- EDIT: Change button text if needed -->
+        <button onclick="scrollToSection('section1')">Wishes</button> <!-- EDIT: Change button text if needed -->
+        <button onclick="scrollToSection('section2')">Memories</button> <!-- EDIT: Change button text if needed -->
+        <button onclick="scrollToSection('section3')">Final Wish</button> <!-- EDIT: Change button text if needed -->
     </nav>
 
     <!-- Snowflakes Container - Where snowflakes are added dynamically -->
@@ -293,36 +305,41 @@
     <section id="section1" class="twinkle">
         <div class="wishes">
             <!-- EDIT: Change the heading to personalize it -->
-            <h1>Merry Christmas, Vartika!</h1>
-            <!-- EDIT: Replace these paragraphs with your own short wishes. Keep them short! -->
-            <p>This holiday season, I want to remind you how much you mean to me.</p>
-            <p>Your smile lights up my world like the brightest Christmas tree.</p>
-            <p>Every moment with you feels like a gift I never want to unwrap.</p>
-            <p>Here's to many more adventures, laughter, and love under the mistletoe.</p>
-            <p>You are my everything—my joy, my peace, my forever.</p>
+            <h1>Merry Christmas, [Your Girlfriend's Name]!</h1>
+            <!-- Wishes Box - This is the box around your text. EDIT: Replace the paragraphs inside with your own wishes -->
+            <div class="wishes-box">
+                <p>This holiday season, I want to remind you how much you mean to me.</p>
+                <p>Your smile lights up my world like the brightest Christmas tree.</p>
+                <p>Every moment with you feels like a gift I never want to unwrap.</p>
+                <p>Here's to many more adventures, laughter, and love under the mistletoe.</p>
+                <p>You are my everything—my joy, my peace, my forever.</p>
+                <!-- EDIT: Add more <p> tags here if you want more wishes -->
+            </div>
         </div>
         <div class="images">
-            <!-- EDIT: Replace 'images/photo1.jpg' with your actual image paths (upload to your GitHub repo) -->
-            <img src="images/photo1.jpg" alt="Us together">
-            <!-- EDIT: Add more <img> tags if you have more photos -->
-            <img src="images/photo2.jpg" alt="A special memory">
+            <!-- EDIT: Replace these placeholder images with your own (upload to your GitHub repo, e.g., 'images/photo1.jpg'). Add/remove as needed -->
+            <img src="https://via.placeholder.com/300x200/ffcccc/000000?text=Your+Photo+1" alt="Placeholder Photo 1">
+            <img src="https://via.placeholder.com/300x200/ffcccc/000000?text=Your+Photo+2" alt="Placeholder Photo 2">
+            <img src="https://via.placeholder.com/300x200/ffcccc/000000?text=Your+Photo+3" alt="Placeholder Photo 3">
+            <img src="https://via.placeholder.com/300x200/ffcccc/000000?text=Your+Photo+4" alt="Placeholder Photo 4">
+            <!-- EDIT: Add more <img> tags for more photos -->
         </div>
     </section>
 
     <!-- Second Section: Memory Carousel -->
     <section id="section2">
         <!-- EDIT: Change the heading -->
-        <h1>Our sweet memories of this year</h1>
+        <h1>Our Christmas Memories</h1>
         <div class="carousel">
             <!-- EDIT: Replace image sources with your own (e.g., 'images/memory1.jpg'). Add/remove as needed -->
-            <img src="images/memory1.jpg" alt="Memory 1" class="active">
-            <img src="images/memory2.jpg" alt="Memory 2">
-            <img src="images/memory3.jpg" alt="Memory 3">
+            <img src="https://via.placeholder.com/600x300/e6f7ff/000000?text=Memory+1" alt="Memory 1" class="active">
+            <img src="https://via.placeholder.com/600x300/e6f7ff/000000?text=Memory+2" alt="Memory 2">
+            <img src="https://via.placeholder.com/600x300/e6f7ff/000000?text=Memory+3" alt="Memory 3">
             <button class="prev" onclick="prevMemory()">❮</button> <!-- Left arrow button -->
             <button class="next" onclick="nextMemory()">❯</button> <!-- Right arrow button -->
         </div>
         <!-- EDIT: This text changes with the carousel. Update the array in JS below -->
-        <p class="memory-text" id="memory-text">pic 1!</p>
+        <p class="memory-text" id="memory-text">That time we baked cookies and laughed all night!</p>
     </section>
 
     <!-- Third Section: Center Figure and Messages -->
@@ -334,37 +351,9 @@
             <div class="ornament" style="top: 20%; left: 30%;"></div>
             <div class="ornament" style="top: 40%; right: 25%;"></div>
             <div class="ornament" style="bottom: 30%; left: 40%;"></div>
+            <!-- EDIT: Add more ornaments like this: <div class="ornament" style="top: 50%; left: 50%;"></div> -->
         </div>
         <div class="messages">
             <!-- EDIT: These are floating messages. Change text and positions as needed -->
             <div class="message" style="top: 10%; left: 20%;">May your days be merry and bright!</div>
-            <div class="message" style="top: 30%; right: 15%;">I LOVE YOUU SOOOOO MUCHHH MY DARLING.</div>
-            <div class="message" style="bottom: 20%; left: 25%;">May we celebrate every Christmas together.</div>
-            <div class="message" style="bottom: 40%; right: 20%;">Here's to a lifetime of us and happiness.</div>
-        </div>
-    </section>
-
-    <!-- Audio Element - For background music -->
-    <audio id="music" loop> <!-- Loop means it repeats -->
-        <!-- EDIT: Replace with your own audio file path (e.g., 'music/jingle-bells.mp3'). Upload to GitHub repo -->
-        <source src="music/jingle-bells.mp3" type="audio/mpeg">
-    </audio>
-    <!-- Play Music Button - Click to start music -->
-    <button id="play-music" onclick="playMusic()"> Music 🎵 </button> <!-- EDIT: Change button text if needed -->
-
-    <script>
-        // Snowflakes Script - Creates and animates snowflakes
-        function createSnowflake() {
-            const snowflake = document.createElement('div'); // Creates a new div for each snowflake
-            snowflake.className = 'snowflake'; // Applies CSS class
-            snowflake.textContent = '❄'; // Snowflake emoji
-            snowflake.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
-            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's'; // Random fall speed
-            document.getElementById('snowflakes').appendChild(snowflake); // Adds to page
-            setTimeout(() => snowflake.remove(), 10000); // Removes after 10 seconds
-        }
-        setInterval(createSnowflake, 200); // Creates a new snowflake every 200ms
-
-        // Scrolling Function - Smoothly scrolls to a section
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); // Scrolls
+            <div class="message" style="top: 30%; right: 15%;">Love you more
